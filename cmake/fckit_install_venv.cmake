@@ -44,7 +44,7 @@ macro( fckit_install_venv )
 
     # install ruamel
     ecbuild_info( "Install ruamel.yaml in virtual environment ${VENV_PATH}" )
-    execute_process( COMMAND ${Python3_EXECUTABLE} -m pip install --disable-pip-version-check ${CMAKE_CURRENT_SOURCE_DIR}/contrib/ruamel.yaml-0.18.6 OUTPUT_QUIET )
+    execute_process( COMMAND ${Python3_EXECUTABLE} -m pip install --use-pep517 --disable-pip-version-check ${CMAKE_CURRENT_SOURCE_DIR}/contrib/ruamel.yaml-0.18.6 OUTPUT_QUIET )
    
     # install fypp
     ecbuild_info( "Install fypp in virtual environment ${VENV_PATH}" )
