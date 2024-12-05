@@ -39,8 +39,10 @@ macro( fckit_install_venv )
        set( _pkg_name "fckit_yaml_reader/[tests]")
     endif()
 
-    execute_process( COMMAND ${Python3_EXECUTABLE} -m pip --disable-pip-version-check
-                     install --upgrade ${PIP_OPTIONS} pip OUTPUT_QUIET ERROR_QUIET )
+    if( Python3_VERSION VERSION_EQUAL 3.8 )
+       execute_process( COMMAND ${Python3_EXECUTABLE} -m pip --disable-pip-version-check
+                        install --upgrade ${PIP_OPTIONS} pip OUTPUT_QUIET ERROR_QUIET )
+    endif()
 
     list( APPEND PIP_OPTIONS "--no-build-isolation" )
     if( HAVE_FCKIT_VENV_EDITABLE )
